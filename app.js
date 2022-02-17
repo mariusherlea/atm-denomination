@@ -1,21 +1,14 @@
-let amount = 275;
+let amount = 245;
 let billsValues = [100, 50, 20, 10, 5];
+
+let rest = [];
+let billsNumber = [];
 
 function denomination(sum, billsValues) {
 
-
-    let billsNumber = [];
-    let rest = [];
-
-
     printInitialValue(sum,billsValues);
 
-
-    billsNumber.push(Math.floor(amount / billsValues[0]));
-
-    console.log(`bill's number`, billsValues[0], "=>", billsNumber[0]);
-
-    rest.push(amount - (billsNumber[0] * billsValues[0]));
+    initializeArray(sum,billsValues);
 
 // console.log('restul dupa impartirea la',valoareaBancnotelor[0],'=>',rest[0]);
 
@@ -26,7 +19,7 @@ function denomination(sum, billsValues) {
 
             billsNumber.push(Math.floor(rest[i - 1] / billsValues[i]));
 
-            console.log(`bill's number`, billsValues[i], "=>", billsNumber[i]);
+            console.log(`bill's number of `, billsValues[i], "=>", billsNumber[i]);
 
             rest.push(rest[i - 1] - (billsNumber[i] * billsValues[i]));
 
@@ -49,6 +42,19 @@ function printInitialValue(amount,billsValue){
         console.log(logEntry);
     }
     console.log("__________");
+}
+
+function initializeArray(amount, billsValues){
+
+
+    billsNumber.push(Math.floor(amount / billsValues[0]));
+
+
+    console.log(`bill's number of`, billsValues[0], "=>", billsNumber[0]);
+
+    rest.push(amount - (billsNumber[0] * billsValues[0]));
+
+
 }
 denomination(amount, billsValues);
 
