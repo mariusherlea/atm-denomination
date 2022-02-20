@@ -1,5 +1,5 @@
-let sumToDenominate=185;
-let billsValues = [100, 50, 20, 10, 5];
+let sumToDenominate=Math.floor(Math.random() * 100);
+let billsValues = [100, 50, 20, 10, 5,1];
 
 let restAfterDenomination = [];
 let billsNumber = [];
@@ -28,10 +28,12 @@ function denomination(sum, billsValues) {
             // console.log('restul dupa impartirea la', valoareaBancnotelor[i], '=>', restAfterDenomination[i]);
 
         } else {
-            console.log(`rest is less than smallest bill or equal to 0`)
-            break;
+            console.log(`rest is less than smallest bill or equal to 0`);
+            billsNumber.push(0);
+            // break;
         }
     }
+
 
 
 }
@@ -76,10 +78,12 @@ denomination(sumToDenominate,billsValues);
 
 $(document).ready(function(){
     $("#btn-add").click(function(){
+
         $("p").append(` <b>sum to denominate: ${sumToDenominate}</b>`);
- $("table").append(`<tr><th>${billsValues[0]}</th><th>${billsValues[1]}</th><th>${billsValues[2]}</th><th>${billsValues[3]}</th><th>${billsValues[4]}</th></tr>
- <tr><td>${billsNumber[0]}</td><td>${billsNumber[1]}</td><td>${billsNumber[2]}</td><td>${billsNumber[3]}</td><td>${billsNumber[4]}</td></tr>
+ $("table").append(`<tr><th>${billsValues[0]}</th><th>${billsValues[1]}</th><th>${billsValues[2]}</th><th>${billsValues[3]}</th><th>${billsValues[4]}</th><th>${billsValues[5]}</th></tr>
+ <tr><td>${billsNumber[0]}</td><td>${billsNumber[1]}</td><td>${billsNumber[2]}</td><td>${billsNumber[3]}</td><td>${billsNumber[4]}</td><td>${billsNumber[5]}</td></tr>
 `);
         // $("#display").val(billsNumber);
+
     });
 });
